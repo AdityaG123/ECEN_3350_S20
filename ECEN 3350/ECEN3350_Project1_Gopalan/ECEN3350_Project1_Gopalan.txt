@@ -1,0 +1,34 @@
+2-2 - Decoding Instructions:
+0x993ff915
+gets translated to:
+stw r4, -28(r19)
+
+
+2.3 - Encoding Instructions:
+divu r14, r5, r22
+gets translated to:
+0x2d9d203a
+
+
+Some C code:
+int main(){
+	int i = 0;
+	int N = 6;
+	int X[] = {5, 3, -6, 19, 8, 12};
+	int Y[] = {0,0,0,0,0,0};
+	int r5 = 0;
+	while (N>0){
+		Y[i] = X[i];
+		i++;
+		N = N - 1;
+	}
+	return;
+}
+
+
+Explanation of the C code:
+The code above is showing that the the array X and Y are assigned in the code to register r2 and register r3. 
+The array value N is the length of the arrays which is set to the resgister r4. The first value in the X array that is getting pointed to,
+moves to the address of the pointer in array Y. This process keeps happening as the code moves down the array until it reaches the end meaning 
+that the values have been copied from the X array to the Y array. Then the results are outputted. 
+			
